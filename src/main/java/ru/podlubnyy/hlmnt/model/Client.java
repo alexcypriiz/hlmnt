@@ -3,7 +3,7 @@ package ru.podlubnyy.hlmnt.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
+import java.util.UUID;
 
 /**
  * Created by Alexey Podlubnyy on 20.08.2021
@@ -13,6 +13,10 @@ import javax.validation.constraints.NotEmpty;
 @Entity
 @Table(name = "client")
 public class Client {
+
+    @Id
+    @GeneratedValue
+    private UUID id;
 
     @Column(name = "surname")
     private String surname;
@@ -26,7 +30,6 @@ public class Client {
     @Column(name = "phone_number")
     private long phoneNumber;
 
-    @Id
     @Column(name = "password")
     private long password;
 }

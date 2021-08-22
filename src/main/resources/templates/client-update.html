@@ -6,9 +6,6 @@
 <body>
 <h2>Изменение данных клиента</h2>
 <form action="#" th:action="@{/client-update}" th:object="${client}" method="post">
-    <label for="password">Паспорт</label>
-    <input type="text" th:field="*{password}" id="password" placeholder="Паспорт">
-    <br/>
 
     <label for="surname">Фамилия</label>
     <input type="text" th:field="*{surname}" id="surname" placeholder="Фамилия">
@@ -24,6 +21,10 @@
 
     <label for="phoneNumber">Телефонный номер</label>
     <input type="text" th:field="*{phoneNumber}" id="phoneNumber" placeholder="Номер телефона">
+    <br/>
+
+    <label for="password">Паспорт</label>
+    <input type="text" th:field="*{password}" id="password" placeholder="Паспорт">
     <br/>
 
     <input type="submit" value="Обновить клиента">

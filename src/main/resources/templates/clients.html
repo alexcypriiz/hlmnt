@@ -13,22 +13,22 @@
         <table>
             <thead>
             <tr>
-                <th>Паспортные данные</th>
                 <th>Фамилия</th>
                 <th>Имя</th>
                 <th>Отчество</th>
                 <th>Номер телефона</th>
+                <th>Паспортные данные</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="client : ${clients}">
-                <td th:text="${client.password}"></td>
                 <td th:text="${client.surname}"></td>
                 <td th:text="${client.name}"></td>
                 <td th:text="${client.patronymic}"></td>
                 <td th:text="${client.phoneNumber}"></td>
-                <td><a th:href="@{client-update/{id}(id=${client.password})}">Изменить</a></td>
-                <td><a th:href="@{client-delete/{id}(id=${client.password})}">Удалить</a></td>
+                <td th:text="${client.password}"></td>
+                <td><a th:href="@{client-update/{id}(id=${client.id})}">Изменить</a></td>
+                <td><a th:href="@{client-delete/{id}(id=${client.id})}">Удалить</a></td>
             </tr>
             </tbody>
         </table>

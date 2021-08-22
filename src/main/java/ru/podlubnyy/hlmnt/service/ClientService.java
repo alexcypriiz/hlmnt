@@ -5,6 +5,7 @@ import ru.podlubnyy.hlmnt.model.Client;
 import ru.podlubnyy.hlmnt.repository.ClientRepository;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Alexey Podlubnyy on 20.08.2021
@@ -19,8 +20,8 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public Client findByPassword(Long password) {
-        return clientRepository.getOne(password);
+    public Client findByPassword(UUID id) {
+        return clientRepository.getOne(id);
     }
 
     public List<Client> findAll() {
@@ -31,7 +32,7 @@ public class ClientService {
         return clientRepository.save(client);
     }
 
-    public void deleteById(Long password) {
-        clientRepository.deleteById(password);
+    public void deleteById(UUID id) {
+        clientRepository.deleteById(id);
     }
 }

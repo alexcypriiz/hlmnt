@@ -7,6 +7,7 @@ import ru.podlubnyy.hlmnt.model.Client;
 import ru.podlubnyy.hlmnt.service.ClientService;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Alexey Podlubnyy on 20.08.2021
@@ -38,15 +39,15 @@ public class ClientController {
         return "redirect:/clients";
     }
 
-    @GetMapping("/client-delete/{password}")
-    public String deleteClient(@PathVariable("password") Long password) {
-        clientService.deleteById(password);
+    @GetMapping("/client-delete/{id}")
+    public String deleteClient(@PathVariable("id") UUID id) {
+        clientService.deleteById(id);
         return "redirect:/clients";
     }
 
-    @GetMapping("/client-update/{password}")
-    public String updateClientForm(@PathVariable("password") Long password, Model model) {
-        Client client = clientService.findByPassword(password);
+    @GetMapping("/client-update/{id}")
+    public String updateClientForm(@PathVariable("id") UUID id, Model model) {
+        Client client = clientService.findByPassword(id);
         model.addAttribute("client", client);
         return "client-update";
     }
