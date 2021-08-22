@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<title>Добавление клиента</title>
+</head>
+<body>
+<h2>Анкета нового клиента</h2>
+<form action="#" th:action="@{/client-create}" th:object="${client}" method="post">
+    <label for="password">Паспортные данные</label>
+    <input type="text" th:field="*{password}" id="password" placeholder="Password">
+    <br/>
+    <label for="surname">Фамилия</label>
+    <input type="text" th:field="*{surname}" id="surname" placeholder="Surname">
+    <br/>
+    <label for="name">Имя</label>
+    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <br/>
+    <label for="patronymic">Отчество</label>
+    <input type="text" th:field="*{patronymic}" id="patronymic" placeholder="Patronymic">
+    <br/>
+    <label for="phoneNumber">Телефонный номер</label>
+    <input type="text" th:field="*{phoneNumber}" id="phoneNumber" placeholder="Phone number">
+    <br/>
+    <input type="submit" value="Добавить клиента">
+</form>
+</body>
+</html>

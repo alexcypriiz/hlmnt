@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Клиенты</title>
+</head>
+<body>
+<div th:switch="${clients}">
+    <h2 th:case="null">No users found!</h2>
+    <div th:case="*">
+        <h2>Клиенты</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Паспортные данные</th>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+                <th>Номер телефона</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="client : ${clients}">
+                <td th:text="${client.password}"></td>
+                <td th:text="${client.surname}"></td>
+                <td th:text="${client.name}"></td>
+                <td th:text="${client.patronymic}"></td>
+                <td th:text="${client.phoneNumber}"></td>
+                <td><a th:href="@{client-update/{id}(id=${client.password})}">Изменить</a></td>
+                <td><a th:href="@{client-delete/{id}(id=${client.password})}">Удалить</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/client-create">Добавить клиента</a></p>
+</div>
+</body>
+</html>
